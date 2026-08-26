@@ -9,6 +9,5 @@ import { OrdersModule } from './orders/orders.module';
   imports: [ProductsModule, CategoriesModule, OrdersModule],
   controllers: [AppController],
   providers: [AppService],
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 })
 export class AppModule {}
