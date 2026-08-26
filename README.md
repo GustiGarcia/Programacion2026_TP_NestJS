@@ -3,7 +3,7 @@
 API REST desarrollada con **NestJS** y **TypeScript** para la gestión de productos, categorías y pedidos, aplicando patrones de diseño creacionales, estructurales y de comportamiento.
 
 **Materia:** Programación 3 — 2026
-**Autor:** Gustavo García
+**Autor:** Gustavo García/ Nahuel Ghilardi
 **Repositorio:** https://github.com/GustiGarcia/Programacion2026_TP_NestJS
 
 ---
