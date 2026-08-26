@@ -3,7 +3,7 @@
 API REST desarrollada con **NestJS** y **TypeScript** para la gestión de productos, categorías y pedidos, aplicando patrones de diseño creacionales, estructurales y de comportamiento.
 
 **Materia:** Programación 3 — 2026
-**Autor:** Gustavo García/ Nahuel Ghilardi
+**Autor:** Gustavo García
 **Repositorio:** https://github.com/GustiGarcia/Programacion2026_TP_NestJS
 
 ---
@@ -67,12 +67,15 @@ src/
 ├── main.ts                          # Bootstrap + ValidationPipe global
 ├── app.module.ts                    # Módulo raíz
 │
+├── entities/                        # Modelo de datos centralizado
+│   ├── product.entity.ts
+│   ├── category.entity.ts
+│   └── order.entity.ts
+│
 ├── products/
 │   ├── dto/
 │   │   ├── create-product.dto.ts
 │   │   └── update-product.dto.ts
-│   ├── entities/
-│   │   └── product.entity.ts
 │   ├── factories/                   # ── Patrón Factory Method
 │   │   ├── product.factory.ts
 │   │   ├── physical-product.ts
@@ -84,14 +87,12 @@ src/
 │
 ├── categories/
 │   ├── dto/
-│   ├── entities/
 │   ├── categories.controller.ts
 │   ├── categories.service.ts
 │   └── categories.module.ts
 │
 └── orders/
     ├── dto/
-    ├── entities/
     ├── strategies/                  # ── Patrón Strategy
     │   ├── discount.strategy.ts
     │   ├── no-discount.strategy.ts
@@ -105,6 +106,8 @@ src/
     ├── orders.service.ts
     └── orders.module.ts
 ```
+
+Las entidades se agrupan en `src/entities/` para tener el modelo de datos completo en un solo lugar. Cada módulo mantiene sus propios DTOs y las clases de los patrones que le corresponden.
 
 El almacenamiento es **en memoria** (arrays dentro de cada service). La lógica de negocio reside en los services; los controllers solo reciben la petición, delegan y devuelven la respuesta.
 
