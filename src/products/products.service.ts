@@ -18,8 +18,26 @@ export class ProductsService {
         return product;
     }
 
-    findAll() {
-        return this.products;
+    findAll(minPrice?: number, maxPrice?: number) {
+        return this.products.filter((p) => {
+            const pasaMinimo = minPrice === undefined || p.price >= minPrice;
+            const pasaMaximo = maxPrice === undefined || p.price <= maxPrice;
+            return pasaMinimo && pasaMaximo;
+        });
+    }
+
+    searchByName(name?: string) {
+        if (name === undefined || name.trim() === '') {
+            return this.products;
+        }
+
+        const buscado = name.toLowerCase();
+
+        return this.products.filter((p) => p.name.toLowerCase().includes(buscado));
+    }
+
+    findByCategory(categoryId: number) {
+        return this.products.filter((p) => p.categoryId === categoryId);
     }
 
     findOne(id: number) {
